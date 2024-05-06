@@ -66,3 +66,60 @@ export async function getRoomById(roomId) {
     throw new Error(`There was a problem while fetching room ${error.message}`);
   }
 }
+
+/* This function books a room */
+export async function bookRoom(roomId, booking) {
+  try {
+    const response = await api.post(
+      `/bookings/room/${roomId}/booking`,
+      booking
+    );
+    return response.data;
+  } catch (e) {
+    if (e.response && e.response.data) {
+      throw new Error(e.response.data);
+    } else {
+      throw new Error(`Something went wrong while booking room! ${e.message}`);
+    }
+  }
+}
+
+/* This function gets all bookings from db */
+export async function getAllBookings() {
+  try {
+    const result = await api.get("/bookings/all-bookings");
+    return result.data;
+  } catch (e) {
+    throw new Error(
+      `Something went wrong while fetching bookings! ${e.message}`
+    );
+  }
+}
+
+/* This function gets booking by confirmation code from db */
+export async function getBookingByConfirmationCode(confirmationCode) {
+  try {
+    const result = await api.get(`/bookings/confirmation/${confirmationCode}`);
+    return result.data;
+  } catch (e) {
+    if (e.response && e.response.data) {
+      throw new Error(e.response.data);
+    } else {
+      throw new Error(
+        `Something went wrong while getting booking by confirmation code! ${e.message}`
+      );
+    }
+  }
+}
+
+/* This function cancels or deletes a booking by bookingid from db */
+export async function cancelBooking(bookingId) {
+  try {
+    const result = await api.delete(`/bookings/booking/${bookingId}/delete`);
+    return result.ata;
+  } catch (error) {
+    throw new Error(
+      `Something went wrong while canceling the booking! ${error.message}`
+    );
+  }
+}

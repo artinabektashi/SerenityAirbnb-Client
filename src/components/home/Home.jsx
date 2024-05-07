@@ -2,6 +2,7 @@ import MainHeader from "../layout/MainHeader";
 import Parallax from "../common/Parallax";
 import HotelService from "../common/HotelService";
 import RoomCarousel from "../common/RoomCarousel";
+import RoomSearch from "../common/RoomSearch";
 // import { useLocation } from "react-router-dom";
 const Home = () => {
   // const location = useLocation();
@@ -19,7 +20,7 @@ const Home = () => {
       )} */}
       <MainHeader />
       <div className="container">
-        {/* <RoomSearch /> */}
+        <RoomSearch />
         <RoomCarousel />
         <Parallax />
         <RoomCarousel />

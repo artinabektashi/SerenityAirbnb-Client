@@ -123,3 +123,12 @@ export async function cancelBooking(bookingId) {
     );
   }
 }
+
+/*This function gets all available rooms*/
+export async function getAvailableRooms(checkInDate, checkOutDate, roomType) {
+  const result = await api.get(
+    `rooms/available-rooms?checkInDate=${checkInDate}
+		&checkOutDate=${checkOutDate}&roomType=${roomType}`
+  );
+  return result;
+}

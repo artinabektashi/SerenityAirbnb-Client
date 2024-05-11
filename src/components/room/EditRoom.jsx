@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { updateRoom, getRoomById } from "../utils/ApiFunctions";
+import { useEffect, useState } from "react";
+import { getRoomById, updateRoom } from "../utils/ApiFunctions";
 import { Link, useParams } from "react-router-dom";
 
 const EditRoom = () => {
@@ -140,5 +140,4 @@ const EditRoom = () => {
     </div>
   );
 };
-
 export default EditRoom;

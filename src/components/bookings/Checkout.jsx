@@ -42,8 +42,8 @@ const Checkout = () => {
   return (
     <div>
       <section className="container">
-        <div className="row">
-          <div className="col-md-4 mt-5 mb-5">
+        <div className="row mt-4">
+          <div className="col-md-6 mb-5">
             {isLoading ? (
               <p>Loading room information...</p>
             ) : error ? (
@@ -53,9 +53,22 @@ const Checkout = () => {
                 <img
                   src={`data:image/png;base64,${roomInfo.photo}`}
                   alt="Room photo"
-                  style={{ width: "100%", height: "200px" }}
+                  style={{ width: "100%", maxHeight: "500px" }}
                 />
-                <table className="table table-bordered">
+              </div>
+            )}
+          </div>
+          <div className="col-md-6 mb-5">
+            {isLoading ? (
+              <p>Loading room information...</p>
+            ) : error ? (
+              <p>{error}</p>
+            ) : (
+              <div className="room-info">
+                <table
+                  className="table table-bordered"
+                  style={{ marginTop: "4rem" }}
+                >
                   <tbody>
                     <tr>
                       <th>Room Type:</th>
@@ -73,7 +86,7 @@ const Checkout = () => {
                             <FaWifi /> Wifi
                           </li>
                           <li>
-                            <FaTv /> Netfilx Premium
+                            <FaTv /> Netflix Premium
                           </li>
                           <li>
                             <FaUtensils /> Breakfast
@@ -98,7 +111,11 @@ const Checkout = () => {
               </div>
             )}
           </div>
-          <div className="col-md-8">
+        </div>
+      </section>
+      <section className="container">
+        <div className="row">
+          <div className="col-md-12">
             <BookingForm />
           </div>
         </div>

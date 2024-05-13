@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRoomById, updateRoom } from "../utils/ApiFunctions";
 import { Link, useParams } from "react-router-dom";
+import "./EditRoom.css";
 
 const EditRoom = () => {
   const [room, setRoom] = useState({
@@ -74,7 +75,7 @@ const EditRoom = () => {
               {errorMessage}
             </div>
           )}
-          <form onSubmit={handleSubmit}>
+          <form className="edit-room-form" onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="roomType" className="form-label hotel-color">
                 Room Type
@@ -128,7 +129,7 @@ const EditRoom = () => {
                 to={"/existing-rooms"}
                 className="btn btn-outline-info ml-5"
               >
-                back
+                Back
               </Link>
               <button type="submit" className="btn btn-outline-warning">
                 Edit Room

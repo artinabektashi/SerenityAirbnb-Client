@@ -83,7 +83,7 @@ const FindBooking = () => {
 
   return (
     <>
-      <div className="container mt-5 d-flex flex-column justify-content-center align-items-center">
+      <div className="booking-contrainer container d-flex flex-column justify-content-center align-items-center">
         <h2 className="text-center mb-4">Find My Booking</h2>
         <form onSubmit={handleFormSubmit} className="col-md-6">
           <div className="input-group mb-3">
@@ -110,28 +110,58 @@ const FindBooking = () => {
         ) : bookingInfo.bookingConfirmationCode ? (
           <div className="col-md-6 mt-4 mb-5">
             <h3>Booking Information</h3>
-            <p className="text-success">
-              Confirmation Code: {bookingInfo.bookingConfirmationCode}
-            </p>
-            <p>Room Number: {bookingInfo.room.id}</p>
-            <p>Room Type: {bookingInfo.room.roomType}</p>
-            <p>
-              Check-in Date:{" "}
-              {moment(bookingInfo.checkInDate)
-                .subtract(1, "month")
-                .format("MMM Do, YYYY")}
-            </p>
-            <p>
-              Check-out Date:{" "}
-              {moment(bookingInfo.checkInDate)
-                .subtract(1, "month")
-                .format("MMM Do, YYYY")}
-            </p>
-            <p>Full Name: {bookingInfo.guestName}</p>
-            <p>Email Address: {bookingInfo.guestEmail}</p>
-            <p>Adults: {bookingInfo.numOfAdults}</p>
-            <p>Children: {bookingInfo.numOfChildren}</p>
-            <p>Total Guest: {bookingInfo.totalNumOfGuests}</p>
+            <table className="table">
+              <tbody>
+                <tr>
+                  <th scope="row">Confirmation Code:</th>
+                  <td>{bookingInfo.bookingConfirmationCode}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Room Number:</th>
+                  <td>{bookingInfo.room.id}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Room Type:</th>
+                  <td>{bookingInfo.room.roomType}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Check-in Date:</th>
+                  <td>
+                    {moment(bookingInfo.checkInDate)
+                      .subtract(1, "month")
+                      .format("MMM Do, YYYY")}
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Check-out Date:</th>
+                  <td>
+                    {moment(bookingInfo.checkOutDate)
+                      .subtract(1, "month")
+                      .format("MMM Do, YYYY")}
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Full Name:</th>
+                  <td>{bookingInfo.guestName}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Email Address:</th>
+                  <td>{bookingInfo.guestEmail}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Adults:</th>
+                  <td>{bookingInfo.numOfAdults}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Children:</th>
+                  <td>{bookingInfo.numOfChildren}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Total Guests:</th>
+                  <td>{bookingInfo.totalNumOfGuests}</td>
+                </tr>
+              </tbody>
+            </table>
 
             {!isDeleted && (
               <button
@@ -143,7 +173,7 @@ const FindBooking = () => {
             )}
           </div>
         ) : (
-          <div>find booking...</div>
+          <div></div>
         )}
 
         {isDeleted && (

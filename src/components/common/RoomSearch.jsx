@@ -21,7 +21,7 @@ const RoomSearch = () => {
     const checkIn = moment(searchQuery.checkInDate);
     const checkOut = moment(searchQuery.checkOutDate);
     if (!checkIn.isValid() || !checkOut.isValid()) {
-      setErrorMessage("Please, enter valid date range");
+      setErrorMessage("Please enter valid date range");
       return;
     }
     if (!checkOut.isSameOrAfter(checkIn)) {

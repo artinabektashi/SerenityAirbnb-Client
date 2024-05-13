@@ -104,7 +104,11 @@ const ExistingRooms = () => {
               </Col>
 
               <Col md={6} className="d-flex justify-content-end">
-                <Link to={"/add-room"}>
+                <Link
+                  style={{ color: "#063970", fontSize: "17px" }}
+                  className="add-room-btn"
+                  to={"/add-room"}
+                >
                   <FaPlus /> Add Room
                 </Link>
               </Col>

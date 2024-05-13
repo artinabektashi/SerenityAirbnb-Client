@@ -7,7 +7,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col xs={12} md={12} className="text-center">
-            <p className="mb-0">
+            <p className="mb-0 footer-text">
               {" "}
               &copy; {today.getFullYear()} Serenity AirBnb
             </p>

@@ -1,7 +1,6 @@
 import { Row, Col, Card } from "react-bootstrap";
 import Header from "./Header";
 import {
-  FaClock,
   FaCocktail,
   FaParking,
   FaSnowflake,
@@ -13,15 +12,12 @@ import {
 const HotelService = () => {
   return (
     <>
-      <div className="mb-2">
-        <Header title={"Our Services"} />
+      <div className="hotel-service">
+        <Header title={""} />
 
         <Row className="mt-4">
           <h4 className="text-center">
             Services at <span className="hotel-color"> Serenity </span>AirBnb
-            <span className="gap-2">
-              <FaClock className="ml-5" /> 24-Hour Front Desk
-            </span>
           </h4>
         </Row>
         <hr />

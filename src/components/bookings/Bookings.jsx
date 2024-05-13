@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { cancelBooking, getAllBookings } from "../utils/ApiFunctions";
-import Header from "../common/Header";
 import BookingsTable from "./BookingsTable";
 
 const Bookings = () => {
@@ -34,7 +33,7 @@ const Bookings = () => {
 
   return (
     <section style={{ backgroundColor: "whitesmoke" }}>
-      <Header title={"Existing Bookings"} />
+      <h1 style={{ paddingTop: "30px" }}>Existing bookings</h1>
       {error && <div className="text-danger">{error}</div>}
       {isLoading ? (
         <div>Loading existing bookings</div>

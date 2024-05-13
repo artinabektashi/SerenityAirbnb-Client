@@ -23,36 +23,38 @@ import RequireAuth from "./components/auth/RequideAuth";
 function App() {
   return (
     <>
-      <AuthProvider>
-        <main>
-          <Router>
-            <NavBar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/edit-room/:roomId" element={<EditRoom />} />
-              <Route path="/existing-rooms" element={<ExistingRooms />} />
-              <Route path="/add-room" element={<AddRoom />} />
-              <Route
-                path="/book-room/:roomId"
-                element={
-                  <RequireAuth>
-                    <Checkout />
-                  </RequireAuth>
-                }
-              />
-              <Route path="/browse-all-rooms" element={<RoomListing />} />
-              <Route path="/admin" element={<Admin />} />
-              <Route path="/booking-success" element={<BookingSuccess />} />
-              <Route path="/existing-bookings" element={<Bookings />} />
-              <Route path="/find-booking" element={<FindBooking />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Registration />} />
-              <Route path="/profile" element={<Profile />} />
-            </Routes>
-          </Router>
-          <Footer />
-        </main>
-      </AuthProvider>
+      <div>
+        <AuthProvider>
+          <main>
+            <Router>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/edit-room/:roomId" element={<EditRoom />} />
+                <Route path="/existing-rooms" element={<ExistingRooms />} />
+                <Route path="/add-room" element={<AddRoom />} />
+                <Route
+                  path="/book-room/:roomId"
+                  element={
+                    <RequireAuth>
+                      <Checkout />
+                    </RequireAuth>
+                  }
+                />
+                <Route path="/browse-all-rooms" element={<RoomListing />} />
+                <Route path="/admin" element={<Admin />} />
+                <Route path="/booking-success" element={<BookingSuccess />} />
+                <Route path="/existing-bookings" element={<Bookings />} />
+                <Route path="/find-booking" element={<FindBooking />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Registration />} />
+                <Route path="/profile" element={<Profile />} />
+              </Routes>
+            </Router>
+          </main>
+        </AuthProvider>
+        <Footer />
+      </div>
     </>
   );
 }

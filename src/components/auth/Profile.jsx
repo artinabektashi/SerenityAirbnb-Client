@@ -111,16 +111,6 @@ const Profile = () => {
                     <div className="card-body">
                       <div className="form-group row">
                         <label className="col-md-2 col-form-label fw-bold">
-                          ID:
-                        </label>
-                        <div className="col-md-10">
-                          <p className="card-text">{user.id}</p>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div className="form-group row">
-                        <label className="col-md-2 col-form-label fw-bold">
                           First Name:
                         </label>
                         <div className="col-md-10">
@@ -171,7 +161,7 @@ const Profile = () => {
               <h4 className="card-title text-center">Booking History</h4>
 
               {bookings.length > 0 ? (
-                <table className="table table-bordered table-hover shadow">
+                <table className="table table-bordered table-hover shadow mt-4">
                   <thead>
                     <tr>
                       <th scope="col">Booking ID</th>

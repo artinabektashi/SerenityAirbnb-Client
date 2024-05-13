@@ -42,23 +42,17 @@ const Room = () => {
   const renderRooms = () => {
     const startIndex = (currentPage - 1) * roomsPerPage;
     const endIndex = startIndex + roomsPerPage;
-    return filteredData
-      .slice(startIndex, endIndex)
-      .map((room) => <RoomCard key={room.id} room={room} />);
+    return filteredData.slice(startIndex, endIndex).map((room) => (
+      <Col key={room.id} md={4} className="mb-3">
+        <RoomCard room={room} />
+      </Col>
+    ));
   };
   return (
-    <Container>
+    <Container className="room-container">
       <Row>
         <Col md={6} className="mb-3 mb-md-0">
           <RoomFilter data={data} setFilteredData={setFilteredData} />
-        </Col>
-
-        <Col md={6} className="d-flex align-items-center justify-content-end">
-          <RoomPaginator
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
         </Col>
       </Row>
 

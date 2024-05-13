@@ -37,52 +37,45 @@ const Login = () => {
   };
 
   return (
-    <section className="container col-6 mt-5 mb-5">
+    <section className="login-container">
       {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        <div className="row mb-3">
-          <label htmlFor="email" className="col-sm-2 col-form-label">
-            Email
-          </label>
-          <div>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="form-control"
-              value={login.email}
-              onChange={handleInputChange}
-            />
-          </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            className="form-control"
+            value={login.email}
+            onChange={handleInputChange}
+          />
         </div>
 
-        <div className="row mb-3">
-          <label htmlFor="password" className="col-sm-2 col-form-label">
-            Password
-          </label>
-          <div>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              className="form-control"
-              value={login.password}
-              onChange={handleInputChange}
-            />
-          </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            className="form-control"
+            value={login.password}
+            onChange={handleInputChange}
+          />
         </div>
 
-        <div className="mb-3">
-          <button
-            type="submit"
-            className="btn btn-hotel"
-            style={{ marginRight: "10px" }}
-          >
-            Login
-          </button>
-          <span style={{ marginLeft: "10px" }}>
-            Dont have an account yet?<Link to={"/register"}> Register</Link>
+        <div className="form-group">
+          <div className="butoni">
+            <button type="submit" className="btn btn-primary">
+              Login
+            </button>
+          </div>
+          <span>
+            Dont have an account yet?{" "}
+            <Link className="register-link" to={"/register"}>
+              Register
+            </Link>
           </span>
         </div>
       </form>

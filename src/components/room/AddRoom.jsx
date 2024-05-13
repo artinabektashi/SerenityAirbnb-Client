@@ -2,6 +2,7 @@ import { useState } from "react";
 import { addRoom } from "../utils/ApiFunctions";
 import RoomTypeSelector from "../common/RoomTypeSelector";
 import { Link } from "react-router-dom";
+import "./AddRoom.css"; // Import the CSS file
 
 const AddRoom = () => {
   const [newRoom, setNewRoom] = useState({
@@ -60,25 +61,25 @@ const AddRoom = () => {
 
   return (
     <>
-      <section className="container mt-5 mb-5">
+      <section className="add-room-container">
         <div className="row justify-content-center">
           <div className="col-md-8 col-lg-6">
-            <h2 className="mt-5 mb-2">Add a New Room</h2>
+            <h2 className="add-room-title">Add a New Room</h2>
             {successMessage && (
-              <div className="alert alert-success fade show">
+              <div className="add-room-message alert alert-success fade show">
                 {" "}
                 {successMessage}
               </div>
             )}
 
             {errorMessage && (
-              <div className="alert alert-danger fade show">
+              <div className="add-room-message alert alert-danger fade show">
                 {" "}
                 {errorMessage}
               </div>
             )}
 
-            <form onSubmit={handleSubmit}>
+            <form className="add-room-form" onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="roomType" className="form-label">
                   Room Type
@@ -121,16 +122,21 @@ const AddRoom = () => {
                   <img
                     src={imagePreview}
                     alt="Preview  room photo"
-                    style={{ maxWidth: "400px", maxHeight: "400px" }}
-                    className="mb-3"
+                    className="room-photo-preview"
                   ></img>
                 )}
               </div>
               <div className="d-grid gap-2 d-md-flex mt-2">
-                <Link to={"/existing-rooms"} className="btn btn-outline-info">
+                <Link
+                  to={"/existing-rooms"}
+                  className="btn btn-outline-info add-room-button"
+                >
                   Existing rooms
                 </Link>
-                <button type="submit" className="btn btn-outline-primary ml-5">
+                <button
+                  type="submit"
+                  className="btn btn-outline-primary ml-5 add-room-button"
+                >
                   Save Room
                 </button>
               </div>

@@ -17,13 +17,19 @@ const EditRoom = () => {
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
-    setRoom({ ...room, photo: selectedImage });
+    setRoom((prevRoom) => ({
+      ...prevRoom,
+      photo: selectedImage,
+    }));
     setImagePreview(URL.createObjectURL(selectedImage));
   };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setRoom({ ...room, [name]: value });
+    setRoom((prevRoom) => ({
+      ...prevRoom,
+      [name]: value,
+    }));
   };
 
   useEffect(() => {
